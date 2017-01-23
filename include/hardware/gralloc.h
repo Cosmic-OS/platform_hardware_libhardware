@@ -144,7 +144,6 @@ enum {
     GRALLOC_USAGE_PRIVATE_3             = 0x80000000,
     GRALLOC_USAGE_PRIVATE_MASK          = 0xF0000000,
 
-#ifdef EXYNOS4_ENHANCEMENTS
     /* SAMSUNG */
     GRALLOC_USAGE_PRIVATE_NONECACHE     = 0x00800000,
 
@@ -155,7 +154,6 @@ enum {
 
     /* SEC Private usage , for Overlay path at HWC */
     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
-#endif
 };
 
 /*****************************************************************************/
@@ -250,10 +248,8 @@ typedef struct gralloc_module_t {
     int (*unlock)(struct gralloc_module_t const* module,
             buffer_handle_t handle);
 
-#ifdef EXYNOS4_ENHANCEMENTS
     int (*getphys) (struct gralloc_module_t const* module,
             buffer_handle_t handle, void** paddr);
-#endif
 
     /* reserved for future use */
     int (*perform)(struct gralloc_module_t const* module,
